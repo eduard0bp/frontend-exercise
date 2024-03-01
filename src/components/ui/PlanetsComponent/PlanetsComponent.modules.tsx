@@ -1,0 +1,37 @@
+import { usePlanets } from '@/hooks/usePlanets'
+import { useContext, useState } from 'react'
+import { ModalContext } from '../Modal/ModalContext'
+import { usePlanetsById } from '@/hooks/usePlanetsById'
+
+export const usePlanetsComponents = () => {
+  const [planetId, setPlanetId] = useState<string>('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const { planets, loading, totalPages } = usePlanets({
+    searchTerm,
+    page: currentPage
+  })
+  const { planet } = usePlanetsById(planetId)
+
+  const goToNextPage = () => {
+    setCurrentPage(prev => Math.min(prev + 1, totalPages))
+    setSearchTerm('')
+  }
+  const goToPrevPage = () => {
+    setCurrentPage(prev => Math.max(prev - 1, 1))
+  }
+
+  return {
+    setPlanetId,
+    searchTerm,
+    setSearchTerm,
+    currentPage,
+    setCurrentPage,
+    planets,
+    loading,
+    totalPages,
+    planet,
+    goToNextPage,
+    goToPrevPage
+  }
+}
