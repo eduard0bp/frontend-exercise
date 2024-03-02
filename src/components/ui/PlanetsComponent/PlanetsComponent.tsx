@@ -20,6 +20,7 @@ const PlanetsComponent = () => {
     currentPage,
     setCurrentPage,
     loading,
+    loadingPlanetInfos,
     planet,
     planets,
     searchTerm,
@@ -27,8 +28,6 @@ const PlanetsComponent = () => {
     setSearchTerm,
     totalPages
   } = usePlanetsComponents()
-
-  console.log(planets)
 
   return (
     <div className="container flex flex-col items-center h-screen py-4 space-y-2 justify-center">
@@ -86,7 +85,7 @@ const PlanetsComponent = () => {
       </Pagination>
 
       <Modal>
-        <PlanetDetails planet={planet} />
+        <PlanetDetails planet={planet} loading={loadingPlanetInfos} />
       </Modal>
     </div>
   )

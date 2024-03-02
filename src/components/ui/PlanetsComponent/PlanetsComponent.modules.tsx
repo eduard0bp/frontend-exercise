@@ -10,7 +10,7 @@ export const usePlanetsComponents = () => {
     searchTerm,
     page: currentPage
   })
-  const { planet } = usePlanetsById(planetId)
+  const { planet, loadingPlanetInfos } = usePlanetsById(planetId)
 
   const goToNextPage = () => {
     setCurrentPage(prev => Math.min(prev + 1, totalPages))
@@ -31,6 +31,7 @@ export const usePlanetsComponents = () => {
     loading,
     totalPages,
     planet,
+    loadingPlanetInfos,
     goToNextPage,
     goToPrevPage
   }
