@@ -1,3 +1,4 @@
+import { LandPlot, Orbit } from 'lucide-react'
 import { Button } from '..'
 import { usePlanetCard } from './PlanetCard.modules'
 
@@ -9,13 +10,22 @@ const PlanetCard = ({
   setPlanetId: any
 }) => {
   const { extractIdFromUrl, setOpen } = usePlanetCard()
-
   return (
     <>
       {planets?.map((planet: any) => {
         const extractedPlanetId = extractIdFromUrl(planet?.url)
         return (
-          <div key={planet.name}>
+          <div
+            key={extractedPlanetId}
+            className="h-64 w-56 bg-white rounded-3xl shadow-primary flex flex-col justify-center items-center text-wrap p-1 text-center gap-1"
+          >
+            <Orbit />
+            <h1 className="text-3xl text-yellow-500 font-semibold">
+              {planet?.name}
+            </h1>
+            <p>População: {planet?.population}</p>
+            <p>Gravidade: {planet?.gravity}</p>
+            <p>Clima: {planet?.climate}</p>
             <Button
               type="button"
               onClick={() => {
@@ -23,10 +33,9 @@ const PlanetCard = ({
                 setPlanetId(extractedPlanetId)
               }}
             >
-              Ver Detalhes
+              Ver mais detalhes
+              <LandPlot />
             </Button>
-            <li>{planet.name}</li>
-            <p>ID: {extractedPlanetId}</p>
           </div>
         )
       })}

@@ -18,6 +18,7 @@ export const usePlanetsComponents = () => {
   }
   const goToPrevPage = () => {
     setCurrentPage(prev => Math.max(prev - 1, 1))
+    setSearchTerm('')
   }
 
   return {

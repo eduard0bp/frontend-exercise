@@ -18,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ModalProvider>
-        <body className={inter.className}>{children}</body>
+        <body
+          className={`${inter.className} h-screen w-screen overflow-hidden bg-black`}
+        >
+          {children}
+        </body>
       </ModalProvider>
     </html>
   )

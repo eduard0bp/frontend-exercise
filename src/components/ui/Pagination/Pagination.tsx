@@ -7,7 +7,7 @@ const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn('mx-auto flex w-full justify-center', className)}
+    className={cn('mx-auto flex w-fit justify-center', className)}
     {...props}
   />
 )
@@ -19,7 +19,10 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn('flex flex-row items-center gap-1', className)}
+    className={cn(
+      'flex flex-row items-center gap-1 w-full justify-center',
+      className
+    )}
     {...props}
   />
 ))
@@ -48,10 +51,8 @@ const PaginationLink = ({
   <a
     aria-current={isActive ? 'page' : undefined}
     className={cn(
-      buttonVariants({
-        variant: isActive ? 'outline' : 'ghost',
-        size
-      }),
+      'bg-white h-8 w-8 p-2 rounded-lg',
+      { 'bg-yellow-500': isActive },
       { 'cursor-not-allowed': disabled },
       className
     )}
@@ -80,7 +81,7 @@ const PaginationButton = ({
     disabled={disabled}
     className={`${
       disabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200'
-    } inline-flex items-center justify-center p-2 mx-1 transition-colors duration-200 ease-in-out`}
+    } inline-flex items-center justify-center p-2 mx-1 transition-colors duration-200 ease-in-out bg-white rounded-lg`}
   >
     {children}
   </button>
@@ -120,11 +121,13 @@ const PaginationEllipsis = ({
 }: React.ComponentProps<'span'>) => (
   <span
     aria-hidden
-    className={cn('flex h-9 w-9 items-center justify-center', className)}
+    className={cn(
+      'flex h-9 w-9 items-center justify-center bg-white rounded-lg',
+      className
+    )}
     {...props}
   >
     <MoreHorizontal className="h-4 w-4" />
-    <span className="sr-only">More pages</span>
   </span>
 )
 PaginationEllipsis.displayName = 'PaginationEllipsis'
@@ -163,7 +166,6 @@ const PaginationNumbers = ({
 
   return <>{pageNumbers}</>
 }
-
 PaginationNumbers.displayName = 'PaginationNumbers'
 
 export {

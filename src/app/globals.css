@@ -66,11 +66,9 @@
   }
 }
  
-@layer base {
-  * {
-    @apply border-border;
-  }
+@layer base {  
   body {
-    @apply bg-background text-foreground;
+    background-image: url('/images/background.jpg');
+    background-size: cover;
   }
 }
