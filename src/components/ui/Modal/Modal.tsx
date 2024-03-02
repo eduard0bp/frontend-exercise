@@ -1,21 +1,10 @@
 'use client'
-
-import { useContext } from 'react'
-
-import Image from 'next/image'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle
-} from '../Dialog/Dialog'
+import { Dialog, DialogContent } from '..'
 import { ModalContext } from './ModalContext'
+import { useContext } from 'react'
 
 interface ModalProps {
   children: React.ReactNode
-  planet: any
 }
 
 const Modal = ({ children }: ModalProps) => {
@@ -23,15 +12,7 @@ const Modal = ({ children }: ModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>AA</DialogTitle>
-
-          <DialogDescription>BB</DialogDescription>
-        </DialogHeader>
-        {children}
-        <DialogFooter></DialogFooter>
-      </DialogContent>
+      <DialogContent>{children}</DialogContent>
     </Dialog>
   )
 }

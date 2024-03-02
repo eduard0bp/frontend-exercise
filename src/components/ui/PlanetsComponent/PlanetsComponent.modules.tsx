@@ -1,6 +1,5 @@
 import { usePlanets } from '@/hooks/usePlanets'
-import { useContext, useState } from 'react'
-import { ModalContext } from '../Modal/ModalContext'
+import { useState } from 'react'
 import { usePlanetsById } from '@/hooks/usePlanetsById'
 
 export const usePlanetsComponents = () => {

@@ -1,9 +1,5 @@
-import PlanetCard from '@/components/ui/PlanetsComponent/PlanetsComponent'
+import { PlanetsComponent } from '@/components/ui'
 
 export default function Home() {
-  return (
-    <div>
-      <PlanetCard />
-    </div>
-  )
+  return <PlanetsComponent />
 }

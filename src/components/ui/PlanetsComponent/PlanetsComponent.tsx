@@ -7,7 +7,8 @@ import {
   PaginationNext,
   PaginationNumbers,
   PaginationPrevious,
-  PlanetCard
+  PlanetCard,
+  PlanetDetails
 } from '..'
 import { usePlanetsComponents } from './PlanetsComponent.modules'
 
@@ -58,8 +59,8 @@ const PlanetsComponent = () => {
           </PaginationContent>
         </Pagination>
       </div>
-      <Modal planet={planet}>
-        <h1>Teste</h1>
+      <Modal>
+        <PlanetDetails planet={planet} />
       </Modal>
     </>
   )

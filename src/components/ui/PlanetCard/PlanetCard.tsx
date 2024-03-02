@@ -1,7 +1,13 @@
 import { Button } from '..'
 import { usePlanetCard } from './PlanetCard.modules'
 
-const PlanetCard = (planets: any, setPlanetId: any) => {
+const PlanetCard = ({
+  planets,
+  setPlanetId
+}: {
+  planets: any
+  setPlanetId: any
+}) => {
   const { extractIdFromUrl, setOpen } = usePlanetCard()
 
   return (
