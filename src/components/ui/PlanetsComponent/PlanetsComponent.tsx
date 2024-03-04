@@ -62,7 +62,15 @@ const PlanetsComponent = () => {
             </p>
           </div>
         ) : (
-          <PlanetCard planets={planets} setPlanetId={setPlanetId} />
+          planets.map(planet => {
+            return (
+              <PlanetCard
+                planet={planet}
+                setPlanetId={setPlanetId}
+                key={planet.name}
+              />
+            )
+          })
         )}
       </div>
 
