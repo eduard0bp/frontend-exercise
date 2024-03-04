@@ -6,7 +6,7 @@ export const usePlanetsComponents = () => {
   const [planetId, setPlanetId] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const { planets, loading, totalPages } = usePlanets({
+  const { planets, loading, totalPages, loadingPlanets } = usePlanets({
     searchTerm,
     page: currentPage
   })
@@ -28,6 +28,7 @@ export const usePlanetsComponents = () => {
     currentPage,
     setCurrentPage,
     planets,
+    loadingPlanets,
     loading,
     totalPages,
     planet,

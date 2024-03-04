@@ -15,7 +15,7 @@ export const usePlanets = ({ searchTerm, page }: UsePlanetsProps) => {
 
   const swrKey = searchTerm ? null : `${BASE_URL}/?page=${page}`
 
-  const { data, error } = useSWR(swrKey, fetcher)
+  const { data, error, isLoading } = useSWR(swrKey, fetcher)
 
   useEffect(() => {
     if (data && !searchTerm) {
@@ -56,6 +56,7 @@ export const usePlanets = ({ searchTerm, page }: UsePlanetsProps) => {
 
   return {
     planets,
+    loadingPlanets: isLoading,
     loading,
     error,
     totalPages

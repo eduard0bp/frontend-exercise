@@ -11,16 +11,16 @@ interface CategoryProps {
 }
 
 const Category = ({ title, isOpen, toggle, children }: CategoryProps) => (
-  <div>
+  <div className="mb-4">
     <div
       onClick={toggle}
       className="cursor-pointer p-2 bg-black rounded-md flex items-center justify-between w-full"
     >
-      <p className="text-yellow-500 text-xl text-center">{title}</p>
+      <p className="text-yellow-500 text-xl">{title}</p>
       {isOpen ? <ChevronUp color="#eab308" /> : <ChevronDown color="#eab308" />}
     </div>
     {isOpen && (
-      <div className="text-left bg-black/70 rounded-md p-2 text-yellow-500">
+      <div className="text-left bg-black/70 rounded-md p-2 text-yellow-500 break-words">
         {children}
       </div>
     )}
@@ -44,7 +44,10 @@ const PlanetDetails = ({
         </p>
       ) : (
         <>
-          <h1 className="text-3xl font-bold text-center text-black" data-testid="planet-name">
+          <h1
+            className="text-3xl font-bold text-center text-black"
+            data-testid="planet-name"
+          >
             Planeta:{' '}
             <span className="text-yellow-500 font-bold">{planet?.name}</span>
           </h1>
@@ -82,7 +85,9 @@ const PlanetDetails = ({
                 <p>
                   Personagens:{' '}
                   {planet?.residents.length > 0
-                    ? planet.residents
+                    ? planet?.residents.map((residents, index) => (
+                        <p key={index}>{residents}</p>
+                      ))
                     : 'Não há personagens'}
                 </p>
               </Category>
@@ -94,7 +99,11 @@ const PlanetDetails = ({
               >
                 <p>
                   Filmes:{' '}
-                  {planet?.films.length > 0 ? planet.films : 'Não há filmes'}
+                  {planet?.films.length > 0
+                    ? planet?.films.map((films, index) => (
+                        <p key={index}>{films}</p>
+                      ))
+                    : 'Não há filmes'}
                 </p>
               </Category>
             </div>

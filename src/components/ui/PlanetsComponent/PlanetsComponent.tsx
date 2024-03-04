@@ -20,6 +20,7 @@ const PlanetsComponent = () => {
     currentPage,
     setCurrentPage,
     loading,
+    loadingPlanets,
     loadingPlanetInfos,
     planet,
     planets,
@@ -49,16 +50,16 @@ const PlanetsComponent = () => {
       </div>
 
       <div className="flex flex-wrap gap-4 w-full h-full overflow-auto items-center bg-white/10 backdrop-blur-sm rounded-3xl lg:justify-between justify-center p-2">
-        {planets.length === 0 ? (
-          <div className="flex-1 flex justify-center items-center">
-            <p className="text-yellow-500 text-3xl self-center text-wrap text-center">
-              Não foi encontrado nenhum planeta com esse nome
-            </p>
-          </div>
-        ) : loading ? (
+        {loading || loadingPlanets ? (
           <div className="flex-1 flex justify-center items-center">
             <p className="text-yellow-500 text-3xl self-center text-wrap text-center">
               Carregando planetas...
+            </p>
+          </div>
+        ) : planets.length === 0 ? (
+          <div className="flex-1 flex justify-center items-center">
+            <p className="text-yellow-500 text-3xl self-center text-wrap text-center">
+              Não foi encontrado nenhum planeta...
             </p>
           </div>
         ) : (
