@@ -44,7 +44,7 @@ const PlanetDetails = ({
         </p>
       ) : (
         <>
-          <h1 className="text-3xl font-bold text-center text-black">
+          <h1 className="text-3xl font-bold text-center text-black" data-testid="planet-name">
             Planeta:{' '}
             <span className="text-yellow-500 font-bold">{planet?.name}</span>
           </h1>

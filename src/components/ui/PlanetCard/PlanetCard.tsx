@@ -18,6 +18,7 @@ const PlanetCard = ({
     <div
       key={extractedPlanetId}
       className="h-64 w-56 bg-white rounded-3xl shadow-primary flex flex-col justify-center items-center text-wrap p-1 text-center gap-1"
+      data-testid={`planet-card-${planet?.name}`}
     >
       <Orbit />
       <h1 className="text-3xl text-yellow-500 font-semibold">{planet?.name}</h1>
